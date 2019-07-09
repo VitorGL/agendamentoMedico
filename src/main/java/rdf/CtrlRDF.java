@@ -1,52 +1,190 @@
 package rdf;
 
+import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.*;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.VCARD;
 
+import java.io.*;
+
 public class CtrlRDF {
+
+    public Model carregarRDF() {
+
+        String uri = "https://base";
+        String ns = uri + "#";
+
+        Model raiz = ModelFactory.createDefaultModel();
+
+//        Property especialidades = raiz.createProperty(ns + "especialidades");
+//        Property medicos = raiz.createProperty(ns + "medicos");
+//        Property pacientes = raiz.createProperty(ns + "pacientes");
+//        Property consultas = raiz.createProperty(ns + "consultas");
+
+        Resource especialidade;
+        String nsEsp = uri + "/especialidades#";
+
+        Property nomeP = raiz.createProperty(nsEsp + "nome");
+
+        Property descricaoP = raiz.createProperty(nsEsp + "descricao");
+
+
+        String nome_arq = "src/DS/especialidade.txt";
+        File arq = new File(nome_arq);
+        BufferedReader leitor;
+        String linha = null;
+
+        try {
+            leitor = new BufferedReader(new FileReader(arq));
+
+            while ((linha = leitor.readLine()) != null) {
+                String codigo = linha.substring(0, linha.indexOf('|'));
+                linha = linha.substring(linha.indexOf('|')+1);
+
+                String nome = linha.substring(0, linha.indexOf('|'));
+
+                String descricao = linha.substring(linha.indexOf('|')+1);
+
+
+                especialidade = raiz.createResource(nsEsp + codigo);
+
+                especialidade.addProperty(nomeP, nome);
+
+                especialidade.addProperty(descricaoP, descricao);
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        Resource medico;
+        String nsMed = uri + "/medicos#";
+
+        nomeP = raiz.createProperty(nsMed + "nome");
+        Property codEspecialidadeP = raiz.createProperty(nsMed + "cod_especialidade");
+        Property anoFormacaoP = raiz.createProperty(nsMed + "ano_formacao");
+        Property valorConsultaP = raiz.createProperty(nsMed + "valor_consulta");
+
+        nome_arq = "src/DS/medico.txt";
+        arq = new File(nome_arq);
+        leitor = null;
+        linha = null;
+
+        try {
+            leitor = new BufferedReader(new FileReader(arq));
+
+            while ((linha = leitor.readLine()) != null) {
+                String crm = linha.substring(0, linha.indexOf('|'));
+                linha = linha.substring(linha.indexOf('|')+1);
+
+                String nome = linha.substring(0, linha.indexOf('|'));
+                linha = linha.substring(linha.indexOf('|')+1);
+
+                String codEspecialidade = linha.substring(0, linha.indexOf('|'));
+                linha = linha.substring(linha.indexOf('|')+1);
+
+                String anoFormacao = linha.substring(0, linha.indexOf('|'));
+                linha = linha.substring(linha.indexOf('|')+1);
+
+                String valorConsulta = linha.substring(linha.indexOf('|')+1);
+
+
+                medico = raiz.createResource(nsMed + crm);
+
+                medico.addProperty(nomeP, nome);
+
+                medico.addProperty(codEspecialidadeP, raiz.getResource(nsEsp + codEspecialidade));
+
+                medico.addProperty(anoFormacaoP, anoFormacao);
+
+                medico.addProperty(valorConsultaP, valorConsulta);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Resource paciente;
+        String nsPac = uri + "/pacientes#";
+
+        nomeP = raiz.createProperty(nsPac + "nome");
+        Property telefoneP = raiz.createProperty(nsPac + "telefone_contato");
+
+
+        nome_arq = "src/DS/paciente.txt";
+        arq = new File(nome_arq);
+        leitor = null;
+        linha = null;
+
+        try {
+            leitor = new BufferedReader(new FileReader(arq));
+
+            while ((linha = leitor.readLine()) != null) {
+                String cpf = linha.substring(0, linha.indexOf('|'));
+                linha = linha.substring(linha.indexOf('|')+1);
+
+                String nome = linha.substring(0, linha.indexOf('|'));
+                linha = linha.substring(linha.indexOf('|')+1);
+
+                String telefone = linha.substring(linha.indexOf('|')+1);
+
+
+                paciente = raiz.createResource(nsPac + cpf);
+
+                paciente.addProperty(nomeP, nome);
+
+                paciente.addProperty(telefoneP, telefone);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        Resource consulta;
+        String nsCon = uri + "/consultas#";
+
+        Property crmP = raiz.createProperty(nsCon + "crm");
+        Property cpfP = raiz.createProperty(nsCon + "cpf");
+
+
+        nome_arq = "src/DS/consulta.txt";
+        arq = new File(nome_arq);
+        leitor = null;
+        linha = null;
+
+        try {
+            leitor = new BufferedReader(new FileReader(arq));
+
+            while ((linha = leitor.readLine()) != null) {
+                String data_hora = linha.substring(0, linha.indexOf('|'));
+                linha = linha.substring(linha.indexOf('|')+1);
+
+                String crm = linha.substring(0, linha.indexOf('|'));
+                linha = linha.substring(linha.indexOf('|')+1);
+
+                String cpf = linha.substring(linha.indexOf('|')+1);
+
+
+                consulta = raiz.createResource(nsCon + data_hora);
+
+                consulta.addProperty(crmP, raiz.getResource(nsMed + crm));
+
+                consulta.addProperty(cpfP, raiz.getResource(nsPac + cpf));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return raiz;
+    }
+
     public static void main(String[] args) {
-        Model model = ModelFactory.createDefaultModel();
+        CtrlRDF parser = new CtrlRDF();
 
-        int crm = 2;
+        Model raiz = ModelFactory.createDefaultModel();
 
-        String baseURI    = "jdbc:h2:mem:default#";
+        raiz.add(parser.carregarRDF());
 
-        Resource raiz = model.createResource(baseURI + "medicos");
-
-        Resource medico = model.createResource(baseURI + crm);
-
-        Resource medico2 = model.createResource(baseURI + 3);
-
-        Property med = model.createProperty(baseURI + "medico");
-
-        Property nome = model.createProperty(baseURI + "nome");
-
-//        Property codEspecialidade = model.createProperty(baseURI + "medicos");
-
-        Property anoFormacao = model.createProperty(baseURI + "ano_formacao");
-
-        Property valorConsulta = model.createProperty(baseURI + "valor_consulta");
-
-//        medico.addProperty(CRM, "Jao das Neves");
-
-        medico.addProperty(nome, "Jao das Neves");
-
-//        medico.addProperty(codEspecialidade, raiz);
-
-        medico.addProperty(anoFormacao, "1994");
-
-        medico.addProperty(valorConsulta, "193");
-
-        model.add(raiz, med, medico);
-        model.add(raiz, med, medico2);
-
-
-        medico2.addProperty(nome, "Jeff");
-        medico2.addProperty(anoFormacao, "2001");
-        medico2.addProperty(valorConsulta, "2000");
-
-        model.write(System.out);
-//        model.add(ResourceFactory.createResource("medicu"), RDF.value, model.createTypedLiteral("pirimpimpim"));
+        raiz.write(System.out);
     }
 }
