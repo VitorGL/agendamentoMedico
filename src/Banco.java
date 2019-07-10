@@ -16,17 +16,7 @@ public class Banco {
 
 		Model raiz = leitor.carregarRDF();
 
-		Query qry = QueryFactory.create("PREFIX bs:<http://base#>" +
-				"SELECT ?data WHERE { " +
-				"bs:especialidades bs:especialidade ?data .}");
-		QueryExecution qe = QueryExecutionFactory.create(qry, raiz);
-		ResultSet rs = qe.execSelect();
-		while(rs.hasNext()) {
-			QuerySolution qs = rs.next() ;
-			Resource subject = qs.getResource("data");
-			System.out.println("Subject: " + subject);
-		}
-		qe.close();
+
 
 		linha.add("123");
 		linha.add("ortopedista");

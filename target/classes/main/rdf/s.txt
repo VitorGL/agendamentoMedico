@@ -1,0 +1,42 @@
+from query_fuseki import query_database
+import sys
+
+query_select = int(sys.argv[1])
+database_name = "TEBD2019-1"
+query_1 = """PREFIX esp:<http://www.tebd2019.com/consultasmedicas/especialidade#>
+    SELECT ?codigo ?nome
+    WHERE { ?codigo esp:nome ?nome. }"""
+
+    query_2 = """
+    PREFIX med:<http://www.tebd2019.com/consultasmedicas/medico#>
+    PREFIX esp:<http://www.tebd2019.com/consultasmedicas/especialidade#>
+    SELECT ?crm ?nome ?ano_formacao ?valor_consulta
+    WHERE { ?crm med:cod_especialidade esp:1.
+    ?crm med:nome ?nome.
+    ?crm med:ano_formacao ?ano_formacao.
+    ?crm med:valor_consulta ?valor_consulta.}"""
+
+    query_3 = """
+    PREFIX med:<http://www.tebd2019.com/consultasmedicas/medico#>
+    SELECT ?nome ?ano_formacao ?valor_consulta
+    WHERE { med:6 med:nome ?nome. med:6 med:ano_formacao ?ano_formacao.
+    med:6 med:valor_consulta ?valor_consulta.}"""
+
+    query_4 = """
+    PREFIX med:<http://www.tebd2019.com/consultasmedicas/medico#>
+    PREFIX con:<http://www.tebd2019.com/consultasmedicas/consulta#>
+    SELECT ?data_hora WHERE { med:6 med:ano_formacao ?ano_formacao.
+    med:6 med:valor_consulta ?valor_consulta.
+    ?blank con:CRM med:6. ?blank con:data_hora ?data_hora}"""
+
+    if query_select == 1:
+        result = query_database(query_1, database_name)
+    elif query_select == 2:
+        result = query_database(query_2, database_name)
+    elif query_select == 3:
+        result = query_database(query_3, database_name)
+    elif query_select == 4:
+        result = query_database(query_4, database_name)
+
+for info in result:
+print(info) print()

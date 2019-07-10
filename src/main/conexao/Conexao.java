@@ -23,7 +23,7 @@ public class Conexao {
         try {
             Model modelBD = dataset.getDefaultModel();
 
-            model.add(model);
+            modelBD.add(model);
 
             try (QueryExecution qExec = QueryExecutionFactory.create(
                     "SELECT (count(*) AS ?count) { ?s ?p ?o} LIMIT 10",

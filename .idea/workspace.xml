@@ -6,7 +6,43 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8116b94e-57f2-416e-a4b8-e0c494417532" name="Default Changelist" comment="" />
+    <list default="true" id="8116b94e-57f2-416e-a4b8-e0c494417532" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/GOSP.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/GOSP.idn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/GPOS.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/GPOS.idn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/GSPO.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/GSPO.idn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/OSP.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/OSP.idn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/OSPG.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/OSPG.idn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/POS.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/POS.idn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/POSG.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/POSG.idn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/SPO.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/SPO.idn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/SPOG.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/SPOG.idn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/journal.jrnl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/node2id.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/node2id.idn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/nodes.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/prefix2id.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/prefix2id.idn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/prefixIdx.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/prefixIdx.idn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/prefixes.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TDB/tdb.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Banco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/conexao/Conexao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/conexao/Conexao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/rdf/CtrlRDF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/rdf/CtrlRDF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/conexao/Conexao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/conexao/Conexao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/rdf/CtrlRDF.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/rdf/CtrlRDF.class" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,13 +68,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Banco.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1126">
-              <caret line="28" column="19" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="28" selection-end-column="19" />
+            <state relative-caret-position="306">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#491#510#0" expanded="true" />
-                <element signature="e#175#183#0" expanded="true" />
-                <element signature="e#325#333#0" expanded="true" />
+                <element signature="e#370#389#0" expanded="true" />
+                <element signature="e#434#442#0" expanded="true" />
+                <element signature="e#488#496#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -47,8 +83,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/rdf/CtrlRDF.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="209" column="59" selection-start-line="209" selection-start-column="59" selection-end-line="209" selection-end-column="59" />
+            <state relative-caret-position="289">
+              <caret line="219" column="12" selection-start-line="219" selection-start-column="12" selection-end-line="219" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -56,13 +92,32 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/conexao/Conexao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>especialidade</find>
+      <find>especialidades</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/web/index.jsp" />
         <option value="$PROJECT_DIR$/src/java/rdf/CtrlRDF.java" />
+        <option value="$PROJECT_DIR$/src/main/rdf/s.txt" />
         <option value="$PROJECT_DIR$/src/main/conexao/Conexao.java" />
         <option value="$PROJECT_DIR$/src/Banco.java" />
         <option value="$PROJECT_DIR$/src/main/rdf/CtrlRDF.java" />
@@ -106,6 +161,7 @@
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -122,12 +178,20 @@
             <path>
               <item name="AgendamentoMedico" type="b2602c69:ProjectViewProjectNode" />
               <item name="AgendamentoMedico" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AgendamentoMedico" type="b2602c69:ProjectViewProjectNode" />
               <item name="AgendamentoMedico" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AgendamentoMedico" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AgendamentoMedico" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="conexao" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -137,6 +201,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -159,6 +224,19 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.CtrlRDF (1)">
+    <configuration name="Conexao" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.conexao.Conexao" />
+      <module name="AgendamentoMedico" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.conexao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CtrlRDF (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.rdf.CtrlRDF" />
       <module name="AgendamentoMedico" />
@@ -226,6 +304,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.CtrlRDF (1)" />
+        <item itemvalue="Application.Conexao" />
         <item itemvalue="Application.CtrlRDF" />
       </list>
     </recent_temporary>
@@ -243,15 +322,15 @@
       <workItem from="1562690525243" duration="135000" />
       <workItem from="1562690667819" duration="70000" />
       <workItem from="1562690741444" duration="31000" />
-      <workItem from="1562690806168" duration="10539000" />
+      <workItem from="1562690806168" duration="27263000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10775000" />
+    <option name="totallyTimeSpent" value="27499000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12953092" />
@@ -310,13 +389,6 @@
       <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/conexao/Conexao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="43" column="26" lean-forward="true" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -324,23 +396,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/rdf/s.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Banco.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1126">
-          <caret line="28" column="19" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="28" selection-end-column="19" />
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#491#510#0" expanded="true" />
-            <element signature="e#175#183#0" expanded="true" />
-            <element signature="e#325#333#0" expanded="true" />
+            <element signature="e#370#389#0" expanded="true" />
+            <element signature="e#434#442#0" expanded="true" />
+            <element signature="e#488#496#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/conexao/Conexao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/rdf/CtrlRDF.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="209" column="59" selection-start-line="209" selection-start-column="59" selection-end-line="209" selection-end-column="59" />
+        <state relative-caret-position="289">
+          <caret line="219" column="12" selection-start-line="219" selection-start-column="12" selection-end-line="219" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -3,6 +3,7 @@ package main.rdf;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.*;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.tdb.TDBFactory;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -193,29 +194,36 @@ public class CtrlRDF {
             e.printStackTrace();
         }
 
+        raiz.setNsPrefix( "pac", "https://base/pacientes#" );
+        raiz.setNsPrefix( "med", "https://base/medicos#" );
+        raiz.setNsPrefix( "cons", "https://base/consultas#" );
+        raiz.setNsPrefix( "espec", "https://base/especialidades#" );
+
         return raiz;
     }
 
     public static void main(String[] args) {
         CtrlRDF leitor = new CtrlRDF();
 
+
         Model raiz = leitor.carregarRDF();
 
-        raiz.write(System.out);;
+        Dataset dataset = TDBFactory.createDataset();
 
-        Query qry = QueryFactory.create("PREFIX bs:<http://base/especialidades#>" +
-                "PREFIX uri:<http://base#>" +
-                "SELECT DISTINCT ?data WHERE { " +
-                "uri:especialidades uri:especialidade ?data .}");
-        QueryExecution qe = QueryExecutionFactory.create(qry, raiz);
-        ResultSet rs = qe.execSelect();
+        dataset.begin(ReadWrite.WRITE);
+        dataset.getDefaultModel().add(raiz);
 
-        System.out.println(rs.getResourceModel());
-        while(rs.hasNext()) {
-            QuerySolution qs = rs.next();
-            Resource subject = qs.getResource("data");
-            System.out.println("Subject: " + subject);
+        try (QueryExecution qExec = QueryExecutionFactory.create(
+                "PREFIX pas:<https://base/pacientes#>" +
+                        "SELECT ?o WHERE { ?s pas:telefone_contato ?o}",
+                dataset)) {
+            ResultSet rs = qExec.execSelect();
+            ResultSetFormatter.out(rs);
+
         }
-        qe.close();
+        dataset.commit();
+
+        dataset.end();
+        
     }
 }
