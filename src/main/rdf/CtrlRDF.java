@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CtrlRDF {
 
@@ -214,11 +215,41 @@ public class CtrlRDF {
         dataset.getDefaultModel().add(raiz);
 
         try (QueryExecution qExec = QueryExecutionFactory.create(
-                "PREFIX pas:<https://base/pacientes#>" +
-                        "SELECT ?o WHERE { ?s pas:telefone_contato ?o}",
+                "PREFIX base:<https://base#>" +
+                        "PREFIX espec:<https://base/especialidades#>" +
+                        "SELECT ?especi ?nome ?descricao WHERE { " +
+                        "       ?base base:especialidade ?especi ." +
+                        "       ?especi espec:nome ?nome ." +
+                        "       ?especi espec:descricao ?descricao ." +
+                        "}",
                 dataset)) {
             ResultSet rs = qExec.execSelect();
-            ResultSetFormatter.out(rs);
+
+            while (rs.hasNext()) {
+                QuerySolution qs = rs.next();
+
+                String nome = qs.getLiteral("nome").toString();
+                String descricao = qs.getLiteral("descricao").toString();
+                String cod = qs.getResource("especi").toString();
+                cod = cod.substring(cod.indexOf('#')+1);
+                System.out.println(nome);
+                System.out.println(descricao);
+                System.out.println(cod);
+
+            }
+
+                //String result = ResultSetFormatter.asText(rs);
+            List result = ResultSetFormatter.toList(rs);
+            for(Object linha : result) {
+                String a = linha.toString();
+
+                String descricao = a.substring(a.indexOf('\"'), a.indexOf('\"'));
+                System.out.println(descricao);
+//                linha = linha.substring(linha.indexOf('|')+1);
+                String[] b = a.split("\".*\"");
+            }
+            //System.out.println(result.get(0));
+            //ResultSetFormatter.out(rs);
 
         }
         dataset.commit();
