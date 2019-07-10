@@ -9,5 +9,8 @@
         <module name="AgendamentoMedico" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AgendamentoMedico" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

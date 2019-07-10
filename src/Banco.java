@@ -1,23 +1,45 @@
- import java.util.ArrayList;
+import main.rdf.CtrlRDF;
+import org.apache.jena.query.*;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.Resource;
+
+import java.util.ArrayList;
 
 public class Banco {
 	
 	public ArrayList<ArrayList<String>> especialidades() //retorna especialidades
 	{
+		CtrlRDF leitor = new CtrlRDF();
+		ArrayList<ArrayList<String>> especialidades = new ArrayList<ArrayList<String>>();
 		ArrayList<String> linha = new ArrayList<String>();
+		ArrayList<String> linha2 = new ArrayList<String>();
+
+		Model raiz = leitor.carregarRDF();
+
+		Query qry = QueryFactory.create("PREFIX bs:<http://base#>" +
+				"SELECT ?data WHERE { " +
+				"bs:especialidades bs:especialidade ?data .}");
+		QueryExecution qe = QueryExecutionFactory.create(qry, raiz);
+		ResultSet rs = qe.execSelect();
+		while(rs.hasNext()) {
+			QuerySolution qs = rs.next() ;
+			Resource subject = qs.getResource("data");
+			System.out.println("Subject: " + subject);
+		}
+		qe.close();
+
 		linha.add("123");
 		linha.add("ortopedista");
 		linha.add("especialidade de ortopedista");
-		
-		ArrayList<String> linha2 = new ArrayList<String>();
+
 		linha2.add("456");
 		linha2.add("dentista");
 		linha2.add("especialidade de dentista");
-		
-		ArrayList<ArrayList<String>> especialidades = new ArrayList<ArrayList<String>>();
+
 		especialidades.add(linha);
 		especialidades.add(linha2);
-		
+
+
 		return especialidades;
 	
 	}
